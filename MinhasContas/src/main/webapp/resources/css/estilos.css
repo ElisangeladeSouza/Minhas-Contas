@@ -1,0 +1,74 @@
+@charset "utf-8";
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+/* TOPO */
+
+header{
+    position: relative;
+    width: 100%;
+    height: 100px; 
+    background-color: indigo;
+    color: white; 
+    box-shadow: 0px 3px 3px #ccc;
+    z-index: 99;
+    display: table;
+}
+
+/*CONTEUDO*/
+
+body{
+    font-size: 13px;
+}
+
+.conteudo{
+    left: 0;
+    margin-left: 15px;
+    border-radius: 5px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    z-index: 5;
+    transition: margin-left 0.5s;
+}
+
+@media(min-width: 640px){
+    .conteudo{
+        margin-left: 220px;
+    }
+
+    .conteudo.esta-oculto{
+        margin-left: 5px !important;
+    }
+}
+
+/*RODAPE*/
+
+#bottom{
+    color: white;
+    margin: 5px 5px 5px 5px;
+    font-weight: bold;
+    font-size: 10px;
+}
+
+footer {
+    position: fixed;
+    padding: 0px;
+    margin-bottom: 1px;
+    color: white;
+    height: 20px;
+    width: 100%;
+    bottom: 0;
+    z-index: 9999999;
+    border: 1px;
+    border-radius: 5px;
+    background-color: indigo;
+}
+
+.sobreporMensagens {
+    z-index: 9999;
+}
+
+
