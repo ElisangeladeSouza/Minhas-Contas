@@ -30,7 +30,7 @@
                             <p:inputText id="descricao" required="true" value="#{lancamentoBean.lancamento.descricao}" size="40"/>
                             
                             <p:outputLabel value="#{msg.value}: " for="valor"/>
-                            <p:inputText id="valor" size="12" value="#{lancamentoBean.lancamento.valor}" styleClass="money">
+                            <p:inputText id="valor" size="12" value="#{lancamentoBean.lancamento.valor}" styleClass="money" required="true">
                                 <f:convertNumber locale="pt_BR" maxFractionDigits="2" minFractionDigits="2" />
                             </p:inputText>
                             

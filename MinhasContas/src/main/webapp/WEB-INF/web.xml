@@ -48,7 +48,7 @@
     </session-config>
     
     <welcome-file-list>
-        <welcome-file>index.xhtml</welcome-file>
+        <welcome-file>comprasFuturas/CadastroComprasFuturas.xhtml</welcome-file>
     </welcome-file-list>
     
     <resource-ref>

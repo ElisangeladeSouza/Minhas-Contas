@@ -24,11 +24,12 @@
             <h1>Minhas Contas</h1>
         </header>
         
-        <h:form style="padding: 1px;margin-top: 5px">
+        <h:form style="padding: 1px">
             <p:menubar styleClass="labelMenu" style="margin-bottom: 10px">
-                <p:menuitem id="home" value="#{msg.home}" outcome="/index" icon="fa fa-home"/>
+                <p:menuitem id="home" value="#{msg.home}" outcome="/comprasFuturas/CadastroComprasFuturas" icon="fa fa-home"/>
                 <p:menuitem id="lancamentos" value="#{msg.financialRelease}" outcome="/lancamento/CadastroLancamento" icon="ui-icon-person"/>
-                <p:menuitem id="relatorios" value="Relatórios"/>
+                <p:menuitem id="comprasFuturas" value="Compras Futuras" outcome="/comprasFuturas/CadastroComprasFuturas" icon="fa fa-shopping-cart"/>
+                <p:menuitem id="relatorios" value="#{msg.reports}" outcome="/relatorios/Relatorios" icon="fa fa-book"/>
             </p:menubar>    
         </h:form>
         
