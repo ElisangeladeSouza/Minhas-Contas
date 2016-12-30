@@ -25,7 +25,7 @@ public class ComprasFuturasService implements ComprasFuturasServiceIF, Serializa
     
     @Transactional
     @Override
-    public void save(ComprasFuturas comprasFuturas) {
+    public void save(ComprasFuturas comprasFuturas) throws NegocioException {
         if (comprasFuturas != null) {
             this.comprasFuturasDao.salvar(comprasFuturas);
         }

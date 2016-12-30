@@ -9,8 +9,6 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
-import org.primefaces.model.DashboardModel;
-import org.primefaces.model.DefaultDashboardModel;
 
 /**
  *
@@ -30,8 +28,6 @@ public class ComprasFuturasBean implements Serializable {
     @Inject
     private ComprasFuturas compraSelecionada;
     
-    private DashboardModel model;
-    
     private transient List<ComprasFuturas> compras;
 
     public ComprasFuturasBean() {
@@ -40,24 +36,24 @@ public class ComprasFuturasBean implements Serializable {
     @PostConstruct
     public void init() {
         this.compras = comprasFuturasService.findAll();
-        this.model = new DefaultDashboardModel();
     }
     
-    public void salvar() {
+    public void salvar() throws NegocioException {
         this.comprasFuturasService.save(comprasFuturas);
-        if (getEditando()) {
-            FacesUtil.mensagemSucesso("Cadastro de compras '" + comprasFuturas.getNome() + "' atualizado com sucesso!");
-        } else {
-            FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
-        }
-        FacesUtil.redirecionaPara("PesquisaComprasFuturas.xhtml");
+        FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
+//        if (getEditando()) {
+//            FacesUtil.mensagemSucesso("Cadastro de compras '" + comprasFuturas.getNome() + "' atualizado com sucesso!");
+//        } else {
+//            FacesUtil.mensagemSucesso("Cadastro efetuado com sucesso!");
+//        }
+        FacesUtil.redirecionaPara("CadastroComprasFuturas.xhtml");
         comprasFuturas = new ComprasFuturas();
     }
     
     public void excluir() throws NegocioException {
         this.comprasFuturasService.delete(compraSelecionada);
         FacesUtil.mensagemSucesso("Exclusão efetuada com sucesso!");
-        FacesUtil.redirecionaPara("PesquisaComprasFuturas.xhtml");
+        FacesUtil.redirecionaPara("CadastroComprasFuturas.xhtml");
     }
     
     /**
@@ -67,9 +63,9 @@ public class ComprasFuturasBean implements Serializable {
      *
      * @return
      */
-    public boolean getEditando() {
-        return this.comprasFuturas.getId() != null;
-    }
+//    public boolean getEditando() {
+//        return this.comprasFuturas.getId() != null;
+//    }
 
     public ComprasFuturas getComprasFuturas() {
         return comprasFuturas;
@@ -103,12 +99,4 @@ public class ComprasFuturasBean implements Serializable {
         this.compras = compras;
     }
 
-    public DashboardModel getModel() {
-        return model;
-    }
-
-    public void setModel(DashboardModel model) {
-        this.model = model;
-    }
-    
 }

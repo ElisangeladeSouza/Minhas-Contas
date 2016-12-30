@@ -1,5 +1,6 @@
 package br.com.minhascontas.dao;
 
+import br.com.minhascontas.dao.interfaces.Dao;
 import java.io.Serializable;
 import java.util.List;
 import javax.inject.Inject;

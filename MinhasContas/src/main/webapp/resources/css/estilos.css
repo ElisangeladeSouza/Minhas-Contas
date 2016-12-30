@@ -66,4 +66,6 @@ footer {
     z-index: 9999;
 }
 
-
+#toolbarComprasFuturas .salvar {
+    background-color: #00FF00;
+}

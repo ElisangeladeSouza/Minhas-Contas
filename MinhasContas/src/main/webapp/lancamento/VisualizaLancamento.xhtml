@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-                template="/WEB-INF/templates/template.xhtml"
+                template="/WEB-INF/templates/Layout.xhtml"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 xmlns:h="http://xmlns.jcp.org/jsf/html">
@@ -13,7 +13,7 @@
 
     <ui:define id="uiTituloLancamento" name="titulo">#{msg.viewCadastreFinancialRelease} | #{msg.systemName}</ui:define>
 
-    <ui:define id="uiConteudoLancamento" name="conteudo">
+    <ui:define id="uiConteudoLancamento" name="content">
         <p:panel id="fieldsetLancamento" header="#{msg.viewCadastreFinancialRelease}">
             <h:form id="formVisualizaLancamento">
                 <p:fieldset id="fieldsetLancamento" legend="#{msg.financialRelease}">

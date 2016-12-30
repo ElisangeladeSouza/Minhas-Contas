@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-                template="/WEB-INF/templates/template.xhtml"
+                template="/WEB-INF/templates/Layout.xhtml"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
@@ -12,13 +12,13 @@
     
     <ui:define id="uiTituloLancamento" name="titulo">#{lancamentoBean.editando ? msg.editCadastreFinancialRelease : msg.newRegisterFinancialRelease} | #{msg.systemName}</ui:define>
 
-    <ui:define id="uiConteudoLancamento" name="conteudo">
+    <ui:define id="uiConteudoLancamento" name="content">
         
         <p:fieldset id="fieldsetLancamento" legend="#{lancamentoBean.editando ? msg.editCadastreFinancialRelease : msg.newRegisterFinancialRelease}">
             <p:panel id="panel" header="#{msg.cadastreFinancialRelease}" style="padding: 20px">
                 <h:form id="formCadastroLancamento" >
                     <h:panelGroup>
-                        <p:growl id="mensagens" autoUpdate="true"/>
+                        <p:growl id="mensagens" autoUpdate="true" class="sobreporMensagens"/>
                         <h:panelGrid columns="2" cellpadding="7">
                             <p:outputLabel value="#{msg.type}: " for="tipo" rendered="true"/>
                             <p:selectOneRadio id="tipo" value="#{lancamentoBean.lancamento.tipo}" label="Tipo de lançamento">

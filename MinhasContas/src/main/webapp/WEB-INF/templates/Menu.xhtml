@@ -1,0 +1,18 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:p="http://primefaces.org/ui">
+	
+    <ui:insert name="menu">
+        <h:form>
+            <p:menu style="width: 205px">
+                <p:submenu label="Menu">
+                    <p:menuitem value="#{msg.home}" outcome="/index" icon="fa fa-home"/>
+                    <p:menuitem value="#{msg.futurePurchases}" outcome="/comprasFuturas/CadastroComprasFuturas" icon="ui-icon-person"/>
+                    <p:menuitem value="#{msg.financialRelease}" outcome="/lancamento/CadastroLancamento" icon="fa fa-shopping-cart"/>
+                    <p:menuitem value="#{msg.reports}" outcome="/relatorios/Relatorios" icon="fa fa-book"/>
+                </p:submenu>
+            </p:menu>    
+        </h:form>
+    </ui:insert>
+</ui:composition>

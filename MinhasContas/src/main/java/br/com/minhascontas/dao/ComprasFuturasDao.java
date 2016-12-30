@@ -4,7 +4,7 @@ import br.com.minhascontas.model.ComprasFuturas;
 import java.io.Serializable;
 
 /**
- *
+ * @see DaoAbstract
  * @author elisangela <elysangeladesouza@gmail.com>
  */
 public class ComprasFuturasDao extends DaoAbstract<ComprasFuturas> implements Serializable {

@@ -13,6 +13,6 @@ public interface ComprasFuturasServiceIF {
     
     public void save(ComprasFuturas comprasFuturas);
     
-    public void delete(ComprasFuturas ComprasFuturasSelecionado);
+    public void delete(ComprasFuturas compraSelecionada);
     
 }

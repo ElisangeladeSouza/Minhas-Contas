@@ -1,4 +1,4 @@
-package br.com.minhascontas.dao;
+package br.com.minhascontas.dao.interfaces;
 
 import java.util.List;
 

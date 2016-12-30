@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-                template="/WEB-INF/templates/template.xhtml"
+                template="/WEB-INF/templates/Layout.xhtml"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:define id="uiPesquisaLancamento" name="titulo">#{msg.searchCadastreFinancialRelease} | #{msg.systemName}</ui:define>
 
-    <ui:define id="uiConteudoLancamento" name="conteudo">
+    <ui:define id="uiConteudoLancamento" name="content">
 
-        <h:form id="formPesquisaLancamentos">
-            <p:growl id="mensagens" autoUpdate="true" class="sobreporMensagens"/>
-            <p:panel header="#{msg.searchCadastreFinancialRelease}">
+        <p:fieldset legend="#{msg.searchCadastreFinancialRelease}">
+            <h:form id="formPesquisaLancamentos">
+                <p:growl id="mensagens" autoUpdate="true" class="sobreporMensagens"/>
                 <p:toolbar >
                     <f:facet name="right">
                         <p:button value="#{msg.newRegister}" id="botaoTelaCadastro" icon="fa fa-plus"
@@ -36,11 +36,11 @@
                     <p:column id="id" headerText="#{msg.id}" style="text-align: center" width="1.2%" filterMatchMode="exact" filterBy="#{lancamento.id}" filterStyle="width: 20px; display:none">
                         <h:outputText value="#{lancamento.id}"/>
                     </p:column>  
-                    
+
                     <p:column id="descricao" headerText="#{msg.financialRelease}" style="text-align: center" width="60" filterMatchMode="exact" filterBy="#{lancamento.descricao}" filterStyle="width: 20px; display:none">
                         <h:outputText value="#{lancamento.descricao}"/>
                     </p:column> 
-                    
+
                     <p:column id="dataVencimento" headerText="#{msg.dueDate}" style="text-align: center" width="30" filterMatchMode="exact" filterBy="#{lancamento.dataVencimento}" filterStyle="width: 20px; display:none">
                         <h:outputText value="#{lancamento.dataVencimento}">
                             <f:convertDateTime type="both" locale="pt_BR" pattern="dd/MM/yyyy"/>
@@ -68,7 +68,7 @@
                         </p:commandButton>
                     </p:column>
                 </p:dataTable>    
-            </p:panel>
-        </h:form>    
+            </h:form>    
+        </p:fieldset>
     </ui:define>    
 </ui:composition>    
