@@ -40,6 +40,10 @@
                     <p:column id="descricao" headerText="#{msg.financialRelease}" style="text-align: center" width="60" filterMatchMode="exact" filterBy="#{lancamento.descricao}" filterStyle="width: 20px; display:none">
                         <h:outputText value="#{lancamento.descricao}"/>
                     </p:column> 
+                    
+                    <p:column id="tipo" headerText="#{msg.type}" style="text-align: center" width="30" filterMatchMode="exact" filterBy="#{lancamento.tipo}" filterStyle="width: 20px; display:none">
+                        <h:outputText value="#{lancamento.tipo}"/>
+                    </p:column>
 
                     <p:column id="dataVencimento" headerText="#{msg.dueDate}" style="text-align: center" width="30" filterMatchMode="exact" filterBy="#{lancamento.dataVencimento}" filterStyle="width: 20px; display:none">
                         <h:outputText value="#{lancamento.dataVencimento}">

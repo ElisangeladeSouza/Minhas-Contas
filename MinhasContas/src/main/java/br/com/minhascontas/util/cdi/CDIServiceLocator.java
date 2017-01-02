@@ -1,6 +1,5 @@
 package br.com.minhascontas.util.cdi;
 
-import br.com.minhascontas.exceptions.MinhasContasException;
 import java.util.Set;
 import javax.enterprise.context.spi.CreationalContext;
 import javax.enterprise.inject.spi.Bean;
@@ -21,13 +20,13 @@ public class CDIServiceLocator {
     private CDIServiceLocator() {
     }
 
-    private static BeanManager getBeanManager() throws MinhasContasException {
+    private static BeanManager getBeanManager() {
         try {
             InitialContext initialContext = new InitialContext();
             return (BeanManager) initialContext.lookup("java:comp/BeanManager");
         } catch (NamingException e) {
             LOGGER.error(e);
-            throw new MinhasContasException("Não pôde encontrar BeanManager no JNDI.");
+            throw new RuntimeException("Não pôde encontrar BeanManager no JNDI.");
         }
     }
 
@@ -36,10 +35,9 @@ public class CDIServiceLocator {
      * @param <T>
      * @param clazz
      * @return
-     * @throws MinhasContasException
      */
     @SuppressWarnings("unchecked")
-    public static <T> T getBean(Class<T> clazz) throws MinhasContasException {
+    public static <T> T getBean(Class<T> clazz) {
         BeanManager bm = getBeanManager();
         Set<Bean<?>> beans = (Set<Bean<?>>) bm.getBeans(clazz);
 

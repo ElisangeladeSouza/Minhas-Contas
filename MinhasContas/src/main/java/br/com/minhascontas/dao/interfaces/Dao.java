@@ -1,5 +1,6 @@
 package br.com.minhascontas.dao.interfaces;
 
+import br.com.minhascontas.exceptions.NegocioException;
 import java.util.List;
 
 /**
@@ -65,6 +66,6 @@ public interface Dao<T> {
      * @param entidade
      * @return
      */
-//    public boolean checaCampoDuplicado(String campo, Object valor, Long id, T entidade) throws NegocioException ;
+    public boolean checaCampoDuplicado(String campo, Object valor, Long id, T entidade) throws NegocioException ;
 
 }

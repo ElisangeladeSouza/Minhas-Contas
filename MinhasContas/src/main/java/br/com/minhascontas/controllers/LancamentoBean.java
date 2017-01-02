@@ -12,6 +12,8 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  *
@@ -23,26 +25,32 @@ public class LancamentoBean implements Serializable {
     private static final long serialVersionUID = 1L;
     
     @Inject
+    @Getter
+    @Setter
     private Lancamento lancamento;
     
     @Inject
+    @Getter
+    @Setter
     private LancamentoServiceIF lancamentoService;
     
     @Inject
+    @Getter
+    @Setter
     private Lancamento lancamentoSelecionado;
     
+    @Getter
+    @Setter
     private transient List<Lancamento> lancamentos;
     
+    @Getter
+    @Setter
     private transient List<TipoLancamento> tiposLancamentos = new ArrayList<>();
 
     public LancamentoBean() {
         this.tiposLancamentos = Arrays.asList(TipoLancamento.values());
     }
 
-    public List<Lancamento> getLancamentos() {
-        return lancamentos;
-    }
-    
     @PostConstruct
     public void init() {
         this.lancamentos = lancamentoService.findAll();
@@ -76,40 +84,4 @@ public class LancamentoBean implements Serializable {
         return this.lancamento.getId() != null;
     }
 
-    public void setLancamentos(List<Lancamento> lancamentos) {
-        this.lancamentos = lancamentos;
-    }
-
-    public Lancamento getLancamento() {
-        return lancamento;
-    }
-
-    public void setLancamento(Lancamento lancamento) {
-        this.lancamento = lancamento;
-    }
-
-    public LancamentoServiceIF getLancamentoService() {
-        return lancamentoService;
-    }
-
-    public void setLancamentoService(LancamentoServiceIF lancamentoService) {
-        this.lancamentoService = lancamentoService;
-    }
-
-    public Lancamento getLancamentoSelecionado() {
-        return lancamentoSelecionado;
-    }
-
-    public void setLancamentoSelecionado(Lancamento lancamentoSelecionado) {
-        this.lancamentoSelecionado = lancamentoSelecionado;
-    }
-
-    public List<TipoLancamento> getTiposLancamentos() {
-        return tiposLancamentos;
-    }
-
-    public void setTiposLancamentos(List<TipoLancamento> tiposLancamentos) {
-        this.tiposLancamentos = tiposLancamentos;
-    }
-    
 }

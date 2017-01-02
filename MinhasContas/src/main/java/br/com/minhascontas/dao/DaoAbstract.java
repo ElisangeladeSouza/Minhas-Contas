@@ -1,6 +1,7 @@
 package br.com.minhascontas.dao;
 
 import br.com.minhascontas.dao.interfaces.Dao;
+import br.com.minhascontas.exceptions.NegocioException;
 import java.io.Serializable;
 import java.util.List;
 import javax.inject.Inject;
@@ -43,15 +44,6 @@ public abstract class DaoAbstract<T> implements Dao<T>, Serializable {
         this.entity = entityClass;
     }
     
-    /**
-     * Método get para a instância do EntityManager
-     *
-     * @return
-     */
-    public EntityManager getEntityManager() {
-        return entityManager;
-    }
-
     /**
      * Metodo utilizado para salvar um novo cadastro no banco de dados ou editar
      * um cadastro existente.
@@ -118,6 +110,43 @@ public abstract class DaoAbstract<T> implements Dao<T>, Serializable {
             LOGGER.info("Informação não encontrada" + ex.getMessage());
         }
         return null;
+    }
+    
+    /**
+     * Recebe o valor passado pelo método buscarPorCampo() para determinar a
+     * duplicidade do cadastro e lança uma exceção informando ao usuário qual
+     * campo não pode ser inserido por já existir no banco de dados.
+     *
+     * 
+     * @param campo
+     * @param valor
+     * @param id
+     * @param entidade
+     * @return
+     * @throws NegocioException 
+     */
+    @Override
+    public boolean checaCampoDuplicado(String campo, Object valor, Long id, T entidade) throws NegocioException {
+        try {
+            if (id == null) {
+                entidade = buscarPorCampo(campo, valor);
+                if (entidade != null) {
+                    throw new NegocioException("Já existe um cadastro com esse(a) " + campo.toUpperCase());
+                }
+            }
+        } catch (NoResultException ex) {
+            LOGGER.info("Infomação não encontrada" + ex.getMessage());
+        }
+        return true;
+    }
+    
+    /**
+     * Método get para a instância do EntityManager
+     *
+     * @return
+     */
+    public EntityManager getEntityManager() {
+        return entityManager;
     }
     
     /**

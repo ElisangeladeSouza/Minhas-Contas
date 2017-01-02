@@ -62,7 +62,7 @@
                             <p:outputLabel for="nome" value="#{msg.name}"/>
                             <p:inputText id="nome" value="#{comprasFuturasBean.comprasFuturas.nome}"/>
 
-                            <p:commandButton style="font-size: 13px" value="Adicionar" process="itemPanel" id="botaoSalvar"
+                            <p:commandButton id="botaoSalvar" value="Adicionar" process="itemPanel" style="font-size: 13px"
                                              update="dataTablePesquisaComprasFuturas" action="#{comprasFuturasBean.salvar}"  
                                              icon="ui-icon ui-icon-disk">
                             </p:commandButton>

@@ -9,6 +9,8 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  *
@@ -20,14 +22,22 @@ public class ComprasFuturasBean implements Serializable {
     private static final long serialVersionUID = 1L;
     
     @Inject
+    @Getter
+    @Setter
     private ComprasFuturas comprasFuturas;
     
     @Inject
+    @Getter
+    @Setter
     private ComprasFuturasServiceIF comprasFuturasService;
     
     @Inject
+    @Getter
+    @Setter
     private ComprasFuturas compraSelecionada;
     
+    @Getter
+    @Setter
     private transient List<ComprasFuturas> compras;
 
     public ComprasFuturasBean() {
@@ -66,37 +76,5 @@ public class ComprasFuturasBean implements Serializable {
 //    public boolean getEditando() {
 //        return this.comprasFuturas.getId() != null;
 //    }
-
-    public ComprasFuturas getComprasFuturas() {
-        return comprasFuturas;
-    }
-
-    public void setComprasFuturas(ComprasFuturas comprasFuturas) {
-        this.comprasFuturas = comprasFuturas;
-    }
-
-    public ComprasFuturasServiceIF getComprasFuturasService() {
-        return comprasFuturasService;
-    }
-
-    public void setComprasFuturasService(ComprasFuturasServiceIF comprasFuturasService) {
-        this.comprasFuturasService = comprasFuturasService;
-    }
-
-    public ComprasFuturas getCompraSelecionada() {
-        return compraSelecionada;
-    }
-
-    public void setCompraSelecionada(ComprasFuturas compraSelecionada) {
-        this.compraSelecionada = compraSelecionada;
-    }
-
-    public List<ComprasFuturas> getCompras() {
-        return compras;
-    }
-
-    public void setCompras(List<ComprasFuturas> compras) {
-        this.compras = compras;
-    }
 
 }
